@@ -19,13 +19,14 @@
         {% else %}
           {%- capture value -%}
             <a href="{{ value | absolute_url }}" target="_blank" rel="noreferrer">
-              {{ value | absolute_url | remove: 'https://' | remove: 'http://' | split: "/" | first }}
+              {{ value | absolute_url | remove: 'https://' | remove: 'http://' | remove: 'www.' |  split: "/" | first }}
             </a>
           {%- endcapture -%}
         {% endif %}
       {% endif %}
-        <dt>{{ item.label }}</dt>
-        <dd>{{ value | strip }}</dd>
+        <dt class="label">{{ item.label }}:</dt>
+        <dd class="value">{{ value | strip }}</dd>
     {% endif %}
+
   {% endfor %}
-</dl>
+    </dl>

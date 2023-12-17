@@ -32,7 +32,6 @@ p {
   color: $text-color;
   max-width: 100%;
   margin-bottom: $less-margin;
-  letter-spacing: .02rem;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.75rem;
@@ -57,7 +56,7 @@ header & nav bar
 
   .navbar-brand {
     font-weight: 700;
-    color: $accent-light;
+    color: $accent-dark;
     font-size: 2rem;
     white-space: normal;
   }
@@ -72,7 +71,6 @@ header & nav bar
 
   .navbar-nav {
     .nav-item {
-      z-index: 1000000;
       background-color: $bg-color;
     }
     .nav-link {
@@ -90,6 +88,9 @@ header & nav bar
       .dropdown-item:focus {
         background-color: transparent;
       }
+      .dropdown-item:hover {
+        background-color: transparent;
+      }
     }
   }
 }
@@ -100,7 +101,7 @@ content section
 
 */
 #wax-main {
-  background-color: $bg-color;
+  background-color: $bg-color-2;
   width: 100vw;
   max-width: 100%;
   padding-top: $margin;
@@ -110,7 +111,6 @@ content section
     margin-bottom: $less-margin;
     margin-top: $more-margin;
     font-family: $heading-font;
-    letter-spacing: 0.1rem;
   }
 
   h1 {
@@ -120,13 +120,11 @@ content section
 
   h2 {
     font-size: 2rem;
-    letter-spacing: 0.1rem;
   }
 
   h3 {
     font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: 0.077rem;
   }
 
   h4 {
@@ -136,7 +134,6 @@ content section
 
   h5 {
     font-size: 1rem;
-    letter-spacing: 0.15rem;
   }
 
   img {
@@ -201,7 +198,8 @@ content section
   width: 100vw;
   padding-bottom: 5rem;
   padding-top: 3rem;
-  background-color: $neutral;
+  background-color: $bg-color;
+  border-top: 1px solid #100c01;
   col {
     flex-basis: 0;
     flex-shrink: 0;
@@ -217,7 +215,7 @@ content section
     margin: 0;
   }
   .footer-description {
-    font-family: $heading-font;
+    font-family: $body-font;
     margin: 0;
     font-size: .9em;
     line-height: 1.2;
@@ -228,7 +226,7 @@ content section
     line-height: 1.2;
   }
   .footer-links {
-    font-family: $heading-font;
+    font-family: $body-font;
     margin: 0;
     font-size: .9em;
     line-height: 1.2;
@@ -317,7 +315,6 @@ item pages (iiif + metadata)
   .image-viewer {
     position: relative;
     text-align: center;
-    height:   $viewer-height;
     max-height: 80vh;
     background-color: $neutral;
     width:    100%;
@@ -334,8 +331,6 @@ item pages (iiif + metadata)
 
     .item-full-image {
       max-width: $max-width;
-      max-height: 100%;
-      height: $viewer-height;
     }
   }
 
@@ -349,7 +344,6 @@ item pages (iiif + metadata)
       font-size: 3em;
       color: $text-color !important;
       text-decoration: none !important;
-      background-color: $bg-color;
       margin: 0;
       &:hover{
         color: $accent-dark !important;
@@ -368,11 +362,17 @@ item pages (iiif + metadata)
 .metadata-block {
   font-family: $body-font;
   max-width: 100%;
-  border: $neutral 1px solid;
+  border: $accent-light 1px solid;
   border-radius: 3px;
   padding: $less-margin;
+  display: grid;
 }
 
+@media (max-width: 768px)
+{.metadata-block {
+  display:block !important;
+}
+}
 /*
 
 search box
@@ -404,7 +404,6 @@ search box
         flex-wrap: nowrap;
         img {
           float: left;
-          width: 50px;
         }
         p {
           margin: 0 !important;
@@ -415,7 +414,7 @@ search box
         }
       }
       &:hover {
-        background-color: $neutral
+        background-color: $bg-color
       }
     }
   }
@@ -430,12 +429,30 @@ search box
       margin-right: .5em;
       margin-top: 1rem;
       font-family: $heading-font;
-      border-color: $text-color;
+      border-color: $text-color !important;
+      color: $text-color !important;
+    }
+    .facet:hover {
+      background-color: $accent-light;
+      border-color: $accent-dark !important ;
+      color: $bg-color-2 !important ;
+    }
+    .facet:focus {
+      box-shadow: 0 0 0 0.2rem $text-color !important;
+      background-color: $accent-light !important;
+      color: $bg-color-2 !important;
     }
     .active{
       @extend .facet;
-      background-color: $text-color;
-      color: $bg-color;
+      background-color: $accent-light !important;
+      color: $bg-color-2 !important;
+    }
+    .facet:not(:disabled):not(.disabled):active {
+      background-color: $accent-light !important;
+      color: $bg-color-2 !important ;
+    }
+    .facet:not(:disabled):not(.disabled):active:focus {
+      box-shadow: 0 0 0 0.2rem $text-color !important;
     }
   }
   .wax-gallery {
@@ -443,14 +460,15 @@ search box
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    min-height: 50vh;
 
     .gallery-item {
       padding: 0;
       margin: .25rem;
       background-color: #ffffff;
-      max-height: $thumbnail-height;
-      max-width: $thumbnail-width;
-      border: 1px grey solid;
+      max-height: 200px;
+      width: 100%;
+      border: 2px black solid;
 
       .gallery-thumb {
         object-position: 50% 20%;
@@ -470,7 +488,7 @@ search box
 
         &:hover {
           .overlay {
-            opacity: .7;
+            opacity: .9;
             cursor: pointer;
             .info {
               opacity: 1;
@@ -486,7 +504,7 @@ search box
         .info {
           text-decoration: none;
           font-family: $heading-font !important;
-          color: $bg-color !important;
+          color: $bg-color-2 !important;
           background-color: transparent;
           opacity: 0;
           filter: alpha(opacity=0);
@@ -494,12 +512,12 @@ search box
           -ms-transform: scale(0);
           transform: scale(0);
           font-weight: normal;
-          font-size: .9rem;
-          line-height: 1rem;
+          font-size: 1.2rem;
+          line-height: 2rem;
           overflow: hidden;
           display: table-cell;
           padding: .4rem;
-          vertical-align: center;
+          vertical-align: middle;
         }
 
         // .info {
@@ -546,6 +564,31 @@ search box
 .sq-thumb-sm{
   object-fit: cover;
   object-position: 50% 20%;
-  width: 80px;
   height: 80px;
+}
+
+/*
+
+add ons
+
+*/
+
+.explainer {
+  font-family: $body-font;
+  margin: 0;
+  font-size: .9em;
+  line-height: 1.2;
+}
+
+dt {
+  grid-column-start: 1 ;
+  padding-right: 10px;
+}
+
+dd {
+  grid-column-start: 2;
+}
+
+.card {
+  border: 1px solid $accent-light ;
 }

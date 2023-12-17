@@ -1,41 +1,31 @@
----
----
-DEFAULT = "{{ site.default_thumb }}";
-
 // Methods and jQuery UI for Wax search box
 function excerptedString(str) {
   str = str || ''; // handle null > string
-  if (str.length < 40) {
+  if (str.length < 120) {
     return str;
   }
   else {
-    return `${str.substring(0, 40)} ...`;
+    return `${str.substring(0, 120)} ...`;
   }
 }
 
 function getThumbnail(item, url) {
-  if (item.thumbnail) {
-    return `<img class='sq-thumb-sm' src='${url}${item.thumbnail}'/>&nbsp;&nbsp;&nbsp;`
+  if ('thumbnail' in item) {
+    return `<img class='sq-thumb-sm' src='${url}/${item.thumbnail}'/>&nbsp;&nbsp;&nbsp;`
   }
   else {
-    return `<img class='sq-thumb-sm' src='${url}${DEFAULT}'/>&nbsp;&nbsp;&nbsp;`
+    return '';
   }
 }
 
 function displayResult(item, fields, url) {
   var pid   = item.pid;
   var label = item.label || 'Untitled';
-  var link  = item.permalink.toLowerCase();
+  var link  = item.permalink;
   var thumb = getThumbnail(item, url);
-  var meta  = []
+  var meta  = excerptedString(item.desription);
 
-  for (i in fields) {
-    fieldLabel = fields[i];
-    if (fieldLabel in item ) {
-      meta.push(`<b>${fieldLabel}:</b> ${excerptedString(item[fieldLabel])}`);
-    }
-  }
-  return `<div class="result"><a href="${url}${link}">${thumb}<p><span class="title">${item.label}</span><br><span class="meta">${meta.join(' | ')}</span></p></a></div>`;
+  return `<div class="result"><a href="${url}${link}">${thumb}<p><span class="title">${item.label}</span><br><span class="meta">${meta}</span></p></a></div>`;
 }
 
 function startSearchUI(fields, indexFile, url) {

@@ -6,19 +6,32 @@ layout: default
   The block below controls the image viewer
 {% endcomment %}
 
-<h3 alt="{{ page.label | escape }}" class='item-label'>{{ page.label }}</h3>
+
+
+{% if page.image_viewer %}
+  {% assign viewer = page.image_viewer %}
+{% elsif layout.image_viewer %}
+  {% assign viewer = layout.image_viewer %}
+{% endif %}
+
+{% if viewer %}
   <div class='item-view'>
     <span class='pagination-link' id='prevlink'></span>
-
-    {% if page.manifest.size > 0 %}
-      {% include osd_iiif_image_viewer.html manifest=page.manifest %}
-    {% elsif page.full.size > 0 %}
-      {% include simple_image_viewer.html full_image=page.full %}
+    {% if viewer == 'openseadragon' %}
+      {% include osd_iiif_image_viewer.html manifest=page.manifest prevlink=prevlink nextlink=nextlink %}
+    {% else %}
+       {% include simple_image_viewer.html full_image=page.full image_link=page.link prevlink=prevlink nextlink=nextlink %}
     {% endif %}
-    
     <span class='pagination-link' id='nextlink'></span>
   </div>
   {% unless layout.pagination == false %}{% include item_pagination.html %}{% endunless %}
+{% endif %}
+
+<h3 alt="{{ page.label }}" class='item-label'>{{ page.label }}</h3>
+
+    {% if page.open_access == 'FALSE' %}
+      <p class="item-access">[Access is limited, restricted or paywalled]</p>
+    {% endif %}
 
 {% comment %}
   The block below controls the item metadata table
@@ -32,3 +45,35 @@ layout: default
 {% if metadata.size %}
   {% include item_metadata.html meta=metadata %}
 {% endif %}
+
+<p>If you know of any errors or corrections that should be made to this entry please contact us (details at bottom of <a href="/mji/faq" target="_blank">FAQ page</a>).</p> 
+<div class="wax-gallery-container">
+  <div class="facet-buttons">
+      <p>
+        <button class="btn facet" type="button" data-toggle="collapse" data-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+          Record Legend 🤓
+        </button>
+      </p>
+      <div class="collapse width" id="collapseWidthExample">
+        <div class="card card-body">
+            <ul>
+              <li>"Last Checked" means the URL was verified but the summary might be outdated.</li>
+              <li>"Physical Location" refers to a place where items available online may also be accessed in person, whether publicly or through appointment.</li>
+              <li>"Online Access" refers to a level of remote accessibility of the resource:</li>
+              <ul>
+                <li>“Full” means that the resource puts no restrictions on access to its content whether via paywalls or other means. However, this does not imply that items can be downloaded or accessed in ways that may infringe copyright or intellectual property nor does it imply that all of the items in the archive, collection, or project are available to access whether due to ongoing preservation/digitalisation work or other reasons.</li>
+                <li>“Partial” means that some of the items in the resource are not available online or only available as extracts, whether due to access requirements or something else.</li>
+                <li>“Catalogue” means that a resource only makes something like a catalogue, guide, or finding aids available online. This can be indicated as:</li>
+                <ul>
+                  <li>“Catalogue only”, generally for physical collections. Where possible, the location of the resource is noted.</li>
+                  <li>“Partial, Catalogue”, when some items are available online alongside a full catalogue.</li>
+                  <li>“Catalogue, Subscription / Purchase”, when full access to the items online is possible only via a paywall or direct purchase.</li>
+                </ul>
+                <li>“None” means the resource has no online services and must be visited in person or that it does not yet have anything available online. The inclusion of such resources is limited to things that feel highly relevant.</li>
+              </ul>
+            </ul>
+            <p>This system is far from perfect. It was born largely out of the needs of the project and has grown with it.</p>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,48 +1,25 @@
 ---
 layout: page
-title: What is Wax?
+title: Music Journalism Insider - Archives & Historical Resources
+show_title: false
 permalink: /about/
+collection: music_archives_resources
 ---
 
-**Wax helps you create digital exhibits.**   
-A digital exhibit is a collection of curated cultural artifacts—manuscripts, paintings, photographs, sculptures, etc—often accompanied by an explicit narrative or argument. Though Wax focuses on images and text, it could be used for sound or video collections with some customization.
+This website began as a public [Google Doc](https://docs.google.com/document/d/1n6YzY38xxPs8Uz2dNxPQgSPQTWODBfxckLueVgcb-ds/edit?usp=sharing) in 2021 within the Music Journalism Insider newsletter project, which was run by [Todd L. Burns](https://www.toddlburns.com/) and closed in December 2023. That Google Doc in turn began as a private spreadsheet between Todd and myself, started sometime in 2019 as we were both nearing the end of our employment for the creative agency behind the Red Bull Music Academy. RBMA had been a part of both our lives for close to a decade and the archive and historical information it had accumulated in that time meant a lot to us, as it did to many others around the world. In light of the somewhat somber feelings around the end of the project we set about figuring out what could be next. And that started with looking at the world of music archives. 
 
-**Wax is an extensible workflow based on minimal computing principles.**  
-Wax is hyper-aware of differences in resources, control and access around the world and close to home. As a result, it is purposefully lightweight: a few Ruby gems, some customizable UI components, good documentation and (hopefully soon!) recipes for creating, deploying, and maintaining custom digital exhibitions.
+Eventually Todd began the newsletter and I went back to school, to do a masters in Digital Humanities. From there we continued to talk about what music archives and histories could be which eventually led to the idea of taking this early spreadsheet, expanding it, and sharing it with others. In the summer of 2021, Todd, [Miranda Reinert](https://www.mirandareinert.com/), and myself created the first version of the Google Doc, which was published a few months later. Following this, Todd and I kept a running staging doc with new things we found or were tipped to and I updated the document as and when - from around 130 resources when we started to 240 today (December 2023, so about two years later). In that time about 10 to 15 resources have disappeared.  
 
-**The exhibition sites created by Wax are static.**  
-This means they consist of flat HTML, CSS, and JavaScript files that don't need to communicate in a complex way back to a server. This makes them cheaper, safer, and generally easier to maintain.
+I actually ended up using the work we'd done on this public document for my thesis, which looked at ways of using machine learning to facilitate finding new music archive resources via social media. In that process I spent some time looking at the practice and tradition of cataloguing, and the odd niche of catalogues about catalogues — which is what this project of ours had turned into. Once I was done with school I felt like it would be right to turn the document into an actual online catalogue, if only to fulfil the meta-ness of it all. And also because a Google Doc can be an absolute pain to navigate, though it has its own charms.  
 
-**The skills needed to create Wax sites are agnostic.**  
-This means they are largely transferable for use in other digital projects. 'Learning Wax' does not mean learning how to use a platform. It involves learning the fundamentals of web development, data management, and [plain text editing](https://zapier.com/blog/beginner-ultimate-guide-markdown/) while leveraging a few great open source libraries and frameworks along the way.
+So here we are, with a website that catalogues music history-related catalogues, collections, archives, websites, social media pages and other sorts of wonderful preservation efforts. I hope you might find something useful, interesting, and inspiring in there just as I have many times over. 
 
-**Wax keeps the collection presentation separate from the collection data.**  
-The Wax workflow starts with making standardized image files and metadata records and builds around them, handling canonical information, scholarly content, and site styling differently and deliberately. This makes it easier for you or others to share, reuse and reimagine your collection data in other contexts.
+This website will be updated on an irregular schedule, and the Google Doc remains available though that will no longer be updated as of December 2023 (as of launch the website includes more resources and metadata than the doc). 
 
-## Who is Wax for?
+This website was built using the Wax workflow from Minicomp, intended to create minimal online exhibitions (so yeah it's a catalogue about catalogues that uses a visual exhibition digital framework, because why not), and with inspiration from the [Music DH 2021 project](https://rutgersdh.github.io/musicdh/) (from which some resources have been included in our catalogue) as well as the [Audubon exhibit at the Lily Library](https://ericayhayes.github.io/audubon/). 
 
-Wax was created for individuals and groups who either don't have or don't want to use a lot of resources to create their scholarly or cultural exhibits. It's best suited for folks who are willing to take on some technical responsibility in exchange for a lot of flexibility.
+All of the content and data is available under a CC-BY 4.0 license. The spreadsheet that powers the whole thing can be viewed and downloaded below. 
 
-For beginners, Wax has a relatively high, but general-purpose learning curve. To get the most out of Wax, you should have some familiarity with:
+**[Laurent Fintoni](https://laurentfintoni.com/), December 2023**
 
-- Using an interactive shell (e.g., Bash/Terminal) to install and interact with programs, files, and directories on your local computer.
-- Using Git and GitHub to version control and collaborate on projects.
-- Using Jekyll to generate static sites.
-- Creating and normalizing data files (e.g., CSV, JSON, YAML)
-- Using file-naming conventions and best practices.
-- Editing HTML, CSS, and some JavaScript.
-
-**However, Wax is also great for teaching or learning the skills above!** For examples of digital pedagogy via the creation of Wax exhibitions, check out [this workshop](https://studentcouncil.college.columbia.edu/events/introduction-minimal-computing-humanities-building-exhibit-primary-sources-using-wax), [this GitHub repository](https://github.com/stylerevolution/stylerevolution.github.io), and [this custom Wax site](https://stylerevolution.github.io/).
-
-**Wax is also phenomenal for professionals who play a facilitating role**, such as Digital Scholarship Librarians or Coordinators. With some practice, Wax substantially reduces the time to production and post-production maintenance costs for you and your team. In the most common scenario, students, faculty, colleagues or any other collaborators just have to provide you with a properly formatted spreadsheet and the text for the exhibits. The extras are up to you.
-
-
-## So what does the Wax workflow *look like?*
-
-Below is a diagram to give you a zoomed-out view. In summary, you create a file of metadata records for your collection (in CSV, YAML, or JSON format), organize your collection image files, and put both in the Jekyll site folder. After updating your configuration, you run a few command line tasks to prepare the data and metadata for use by the Jekyll site. Jekyll then uses special layouts and Wax components to build the exhibit and spits them out as static pages ready to publish.
-
-From there, you can run tests on your site to catch errors and decide where and how to put it online or in offline media.
-
-<a href="{{ '/img/wax_workflow.jpg' | absolute_url }}">
-  <img src="{{ '/img/wax_workflow.jpg' | absolute_url }}" alt="workflow diagram for wax process"/>
-</a>
+{% include interactive_metadata_table.html collection='music_history' %}

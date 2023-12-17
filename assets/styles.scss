@@ -6,12 +6,12 @@ variable declaration
 */
 
 /* branding */
-$logo: url("{{ '/assets/logo.png' | absolute_url }}");
+$logo: url("{{ '/assets/mji_invert_logo.png' | absolute_url }}");
 
 /* text */
 
-$body-font:       'Open Sans', 'sans-serif';
-$heading-font:    'Open Sans', 'sans-serif';
+$body-font:       'Roboto Slab', serif;
+$heading-font:    'Exo', sans-serif;
 
 
 /* Image Size */
@@ -22,14 +22,15 @@ $thumbnail-width: 140px;
 /* colors */
 
 $text-color:      #100c01;
-$bg-color:        #ffffff;
+$bg-color:        #FFF5E0;
+$bg-color-2:        #fff;
 $neutral:         #eae7de;
-$accent-light:    #966d09;
-$accent-dark:     #644906;
+$accent-light:    #FF6969;
+$accent-dark:     #C70039;
 
 /* viewport sizes */
 
-$max-width:       800px;
+$max-width:       1100px;
 
 /* margins */
 
@@ -47,5 +48,5 @@ $footer-height:   250px;
 font & asset import
 */
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&font-display=auto');
 @import 'wax';
+@import url('https://fonts.googleapis.com/css2?family=BioRhyme&family=Exo:wght@700&family=Roboto+Slab:wght@300&display=swap');

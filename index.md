@@ -1,19 +1,16 @@
 ---
 layout: page
 show_title: false
-banner:
-  collection: qatar
-  pid: obj10
-  y: 25%
-  clickable: yes
-  height: '500px'
 ---
 
-__Wax__ is a [minimal computing](http://go-dh.github.io/mincomp/) project for producing digital exhibitions focused on longevity, low costs, and flexibility. Our underlying technology is made to learn and to teach, and can produce beautifully rendered, high-quality image collections and scholarly exhibits. To start using Wax, please see our [documentation](https://minicomp.github.io/wiki/#/wax/) for installation instructions and more.
+Welcome! 👋🏻
 
-The collection items in this demo are from The Museum of Islamic Art, Qatar, (courtesy of [WikiMedia](https://commons.wikimedia.org/wiki/Category:Google_Art_Project_works_in_The_Museum_of_Islamic_Art,_Qatar) and [Google Art Project](https://www.google.com/culturalinstitute/about/artproject/)) and The Qatar National Library (via [World Digital Library](https://www.wdl.org/en/)).
+This website catalogs archives, historical, and research resources that deal with music in some way. It is intended as something that music journalists, academics, musicians, fans, and anyone curious about music might find useful. 
 
-### Browse the Collection
+These resources range from traditional collections and public archives to community-driven efforts, crowdsourcing initiatives, research projects, file dumps, and corporate marketing campaigns. Some are detailed according to established standards, some are arranged according to personal perspectives, and yet others are social media accounts where all you might have to go on is a caption or comment. What they do have in common is that they all celebrate this thing called music through the stories, people, places, objects, and traditions that make it so wonderful and complicated.      
 
-#### By Item Type
-{% include collection_gallery.html facet_by='object_type' collection='qatar' %}
+You can find out more about this project on the [About](/mji/about/) page, find answers on the [FAQ](/mji/faq/) page, explore using the categories in the menu above or just click [Browse](/mji/collection/) and see what's there. 
+
+### To get you started here are some personal favorites... 
+
+{% include collection_gallery.html facet_by='fav' collection='music_history' only='Y' %}

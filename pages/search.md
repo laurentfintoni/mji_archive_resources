@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Search the Collection
+title: Search the Resources
 permalink: /search/
 ---
 
-{% include search_box.html search='main' %}
+{% include search_box.html search='main' ui='/assets/js/lunr-ui.js' %}
