@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Music Journalism Insider - Archives & Historical Resources
+title: About
 show_title: false
 permalink: /about/
 collection: music_archives_resources
